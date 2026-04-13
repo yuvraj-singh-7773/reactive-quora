@@ -23,4 +23,6 @@ public class QuestionRequestDTO {
     @Size(min=10,max=1000,message = "context message must be length between 10 to 1000")
     private String content;
 
+    private String tag;
+
 }

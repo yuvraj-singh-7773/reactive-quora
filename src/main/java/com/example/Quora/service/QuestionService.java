@@ -1,14 +1,24 @@
 package com.example.Quora.service;
 
+import com.example.Quora.dto.PaginationDTO;
+import com.example.Quora.dto.QuestionPaginationResponseDTO;
 import com.example.Quora.dto.QuestionRequestDTO;
 import com.example.Quora.dto.QuestionResponseDTO;
 import com.example.Quora.mapper.QuestionMapper;
 import com.example.Quora.models.Question;
 import com.example.Quora.repository.QuestionRepository;
+import com.example.Quora.utils.CursorUtils;
+import com.example.Quora.utils.PaginationUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -34,6 +44,87 @@ public class QuestionService implements IQuestionService{
                 .doOnError(error-> System.out.println("Error Occur During Question fetching"+error));
     }
 
+    @Override
+    public Mono<QuestionPaginationResponseDTO> getAllQuestions(String cursor, int size) {
+        Pageable pageable= PageRequest.of(0,size);
+        if(!CursorUtils.isValidCursor(cursor)){
+            return questionRepository.findTop10ByOrderByCreatedAtAsc()
+                    .take(size)
+                    .map(QuestionMapper::toQuestionResponseDto)
+                    .collectList()
+                    .map(questionList -> {
 
+                        PaginationDTO paginationDTO =
+                                PaginationUtils.buildPagination(
+                                        questionList.size(), 0, size
+                                );
 
+                        return QuestionMapper.toQuestionPaginationResponseDTO(
+                                questionList,
+                                paginationDTO
+                        );
+                    });
+        }
+        else{
+            LocalDateTime cursorTimeStamp = CursorUtils.parseCursor(cursor);
+            return questionRepository.count()
+                    .flatMap(
+                            totalCount->{
+                                PaginationDTO paginationDTO=PaginationUtils.buildPagination(totalCount,0,size);
+                                return questionRepository.findByCreatedAtGreaterThanOrderByCreatedAtAsc(cursorTimeStamp,pageable)
+                                        .map(QuestionMapper::toQuestionResponseDto)
+                                        .collectList()
+                                        .map(questionList->
+                                                QuestionMapper.toQuestionPaginationResponseDTO(questionList,paginationDTO)
+                                        );
+                            }
+
+                    );
+        }
+    }
+
+    @Override
+    public Mono<QuestionPaginationResponseDTO> SearchQuestions(String query, int page, int size) {
+        Pageable pageable=PageRequest.of(page,size);
+        return questionRepository.countByTitleOrContentContainingIgnoreCase(query,query)
+                .flatMap(
+                        totalCount->{
+                            PaginationDTO paginationDTO=PaginationUtils.buildPagination(totalCount,page,size);
+                            return questionRepository
+                                    .findByTitleOrContentContainingIgnoreCase(query,pageable)
+                                    .map(QuestionMapper::toQuestionResponseDto)
+                                    .collectList()
+                                    .map(questionList->
+                                            QuestionMapper.toQuestionPaginationResponseDTO(questionList,paginationDTO));
+                        }
+                );
+    }
+
+    @Override
+    public Mono<QuestionPaginationResponseDTO> getQuestionsByTag(String tag, int page, int size) {
+        Pageable pageable=PageRequest.of(page,size);
+        return questionRepository.countByTag(tag)
+                .flatMap(
+                        totalCount-> {
+                            PaginationDTO paginationDTO=PaginationUtils.buildPagination(totalCount,page,size);
+                            return questionRepository.findByTag(tag,pageable)
+                                    .map(QuestionMapper::toQuestionResponseDto)
+                                    .collectList()
+                                    .map(questionList ->
+                                            QuestionMapper.toQuestionPaginationResponseDTO(
+                                                    questionList, paginationDTO
+                                            )
+                                    );
+
+                        }
+
+                );
+    }
+
+    @Override
+    public Mono<Void> deleteQuestionById(String id) {
+        return questionRepository.findById(id)
+                .switchIfEmpty(Mono.error(new RuntimeException("Not found")))
+                .flatMap(q -> questionRepository.delete(q));
+    }
 }

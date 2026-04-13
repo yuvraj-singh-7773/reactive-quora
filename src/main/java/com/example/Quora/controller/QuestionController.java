@@ -1,6 +1,7 @@
 package com.example.Quora.controller;
 
 
+import com.example.Quora.dto.QuestionPaginationResponseDTO;
 import com.example.Quora.dto.QuestionRequestDTO;
 import com.example.Quora.dto.QuestionResponseDTO;
 import com.example.Quora.service.IQuestionService;
@@ -31,30 +32,40 @@ public class QuestionController {
     }
 
     @GetMapping()
-    public Flux<QuestionResponseDTO> getAllQuestions() {
-        throw new UnsupportedOperationException("Not implemented");
+    public Mono<QuestionPaginationResponseDTO> getAllQuestions(String cursor, int size) {
+        return questionService.getAllQuestions(cursor,size)
+                .doOnNext(response-> System.out.println("Question fetched: "+ response))
+                .doOnError(error-> System.out.println("Error while fetching all questions: "+ error));
     }
 
     @DeleteMapping("/{id}")
-    public Mono<Void> deleteQuestionById(@PathVariable String id) {
-        throw new UnsupportedOperationException("Not implemented");
+    public Mono<String> deleteQuestionById(@PathVariable String id) {
+        return questionService.deleteQuestionById(id)
+                .then(Mono.just("Question is deleted successfully with id"+id))
+                .doOnSuccess(response-> System.out.println("Question deleted successfully with id: "+ id))
+                .doOnError(error-> System.out.println("Error while deleting question with id: "+ id + " Error: " + error));
+
     }
 
     @GetMapping("/search")
-    public Flux<QuestionResponseDTO> searchQuestions(
+    public Mono<QuestionPaginationResponseDTO> searchQuestions(
             @RequestParam String query,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
     ) {
-        throw new UnsupportedOperationException("Not implemented");
+            return questionService.SearchQuestions(query, page, size)
+                    .doOnNext(response-> System.out.println("Question fetched by search query: "+ response))
+                    .doOnError(error-> System.out.println("Error while searching questions with query: "+ query + " Error: " + error));
     }
 
     @GetMapping("/tag/{tag}")
-    public Flux<QuestionResponseDTO> getQuestionsByTag(@PathVariable String tag,
+    public Mono<QuestionPaginationResponseDTO> getQuestionsByTag(@PathVariable String tag,
                                                        @RequestParam(defaultValue = "0") int page,
                                                        @RequestParam(defaultValue = "10") int size
     ) {
-        throw new UnsupportedOperationException("Not implemented");
+        return questionService.getQuestionsByTag(tag, page, size)
+                .doOnNext(response-> System.out.println("Question fetched by tag: "+ response))
+                .doOnError(error-> System.out.println("Error while fetching questions with tag: "+ tag + " Error: " + error));
     }
 
 

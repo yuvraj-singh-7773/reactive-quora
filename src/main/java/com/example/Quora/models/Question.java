@@ -16,4 +16,5 @@ public class Question extends BaseEntity{
 
     private String content;
 
+    private String tag;
 }
