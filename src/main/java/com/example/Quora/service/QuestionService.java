@@ -4,8 +4,11 @@ import com.example.Quora.dto.PaginationDTO;
 import com.example.Quora.dto.QuestionPaginationResponseDTO;
 import com.example.Quora.dto.QuestionRequestDTO;
 import com.example.Quora.dto.QuestionResponseDTO;
+import com.example.Quora.enums.TargetType;
+import com.example.Quora.events.ViewCountEvent;
 import com.example.Quora.mapper.QuestionMapper;
 import com.example.Quora.models.Question;
+import com.example.Quora.producer.KafkaEventProducer;
 import com.example.Quora.repository.QuestionRepository;
 import com.example.Quora.utils.CursorUtils;
 import com.example.Quora.utils.PaginationUtils;
@@ -26,6 +29,8 @@ public class QuestionService implements IQuestionService{
 
     private final QuestionRepository questionRepository;
 
+    private final KafkaEventProducer kafkaEventProducer;
+
     @Override
     public Mono<QuestionResponseDTO> createQuestion(QuestionRequestDTO questionRequestDTO) {
         Question question= QuestionMapper.toEntity(questionRequestDTO);
@@ -40,7 +45,17 @@ public class QuestionService implements IQuestionService{
     public Mono<QuestionResponseDTO> getQuestionById(String id) {
         return questionRepository.findById(id)
                 .map(QuestionMapper::toQuestionResponseDto)
-                .doOnSuccess(response-> System.out.println("Question fetched successfully" +response))
+                .doOnSuccess(response -> {
+                    System.out.println("Question fetched successfully: " + response);
+
+                    ViewCountEvent viewCountEvent = new ViewCountEvent(
+                            id,
+                            TargetType.Questions,
+                            LocalDateTime.now()
+                    );
+
+                    kafkaEventProducer.publishViewCountEvent(viewCountEvent);
+                })
                 .doOnError(error-> System.out.println("Error Occur During Question fetching"+error));
     }
 
