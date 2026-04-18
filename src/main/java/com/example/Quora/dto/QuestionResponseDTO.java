@@ -20,5 +20,7 @@ public class QuestionResponseDTO {
 
     private String content;
 
+    private long views;
+
     private LocalDateTime createdAt;
 }

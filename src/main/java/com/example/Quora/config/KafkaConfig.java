@@ -1,5 +1,6 @@
 package com.example.Quora.config;
 
+import com.example.Quora.events.ViewCountEvent;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -31,7 +32,7 @@ public class KafkaConfig {
 
 
     @Bean
-    public ProducerFactory<String, Object> producerFactory() { // producer factory is used to create a producer
+    public ProducerFactory<String, ViewCountEvent> producerFactory() { // producer factory is used to create a producer
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -42,26 +43,29 @@ public class KafkaConfig {
     }
 
     @Bean
-    public ConsumerFactory<String, Object> consumerFactory() {
+    public ConsumerFactory<String, ViewCountEvent> consumerFactory() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
         configProps.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
         configProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         configProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+        configProps.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
+        configProps.put(JsonDeserializer.VALUE_DEFAULT_TYPE, ViewCountEvent.class.getName());
+        configProps.put(JsonDeserializer.USE_TYPE_INFO_HEADERS, false);
 
         return new DefaultKafkaConsumerFactory<>(configProps);
     }
 
     @Bean
-    public KafkaTemplate<String, Object> kafkaTemplate() {
+    public KafkaTemplate<String, ViewCountEvent> kafkaTemplate() {
 
         return new KafkaTemplate<>(producerFactory());
     }
 
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, Object> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public ConcurrentKafkaListenerContainerFactory<String, ViewCountEvent> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, ViewCountEvent> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         factory.setConcurrency(3);
         return factory;

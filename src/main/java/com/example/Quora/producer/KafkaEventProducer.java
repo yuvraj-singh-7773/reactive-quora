@@ -12,12 +12,13 @@ import org.springframework.stereotype.Service;
 public class KafkaEventProducer {
 
 
-    private KafkaTemplate<String, Object> kafkaTemplate;
+    private final KafkaTemplate<String, ViewCountEvent> kafkaTemplate;
 
     public void publishViewCountEvent(ViewCountEvent viewCountEvent){
         kafkaTemplate.send(KafkaConfig.TOPIC_NAME,viewCountEvent.getTargetId(),viewCountEvent)
                 .whenComplete((result,err)->{
                     if(err!=null) System.out.println("Error publishing view count event: "+err.getMessage());
+                    else System.out.println("View count event published successfully for targetId: "+viewCountEvent.getTargetId());
                 });
     }
 

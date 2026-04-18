@@ -17,4 +17,7 @@ public class Question extends BaseEntity{
     private String content;
 
     private String tag;
+
+    @Builder.Default
+    private long views=0L;
 }

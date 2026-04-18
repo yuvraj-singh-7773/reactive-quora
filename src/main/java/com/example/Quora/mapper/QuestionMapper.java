@@ -25,6 +25,7 @@ public class QuestionMapper {
                 .id(question.getId())
                 .title(question.getTitle())
                 .content(question.getContent())
+                .views(question.getViews())
                 .createdAt(question.getCreatedAt())
                 .build();
     }
