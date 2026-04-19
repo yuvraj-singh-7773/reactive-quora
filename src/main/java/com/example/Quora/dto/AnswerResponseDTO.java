@@ -1,6 +1,4 @@
 package com.example.Quora.dto;
-
-import com.example.Quora.models.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +16,8 @@ public class AnswerResponseDTO  {
     private String id;
 
     private String content;
+
+    private String questionId;
 
     private LocalDateTime createdAt;
 
