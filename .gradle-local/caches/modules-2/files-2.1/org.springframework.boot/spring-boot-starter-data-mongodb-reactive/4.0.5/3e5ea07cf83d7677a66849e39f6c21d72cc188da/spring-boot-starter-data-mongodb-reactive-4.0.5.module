@@ -1,0 +1,160 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.springframework.boot",
+    "module": "spring-boot-starter-data-mongodb-reactive",
+    "version": "4.0.5",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.4.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-mongodb",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-data-mongodb",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-reactor",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "org.mongodb",
+          "module": "mongodb-driver-reactivestreams",
+          "version": {
+            "requires": "5.6.4"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-boot-starter-data-mongodb-reactive-4.0.5.jar",
+          "url": "spring-boot-starter-data-mongodb-reactive-4.0.5.jar",
+          "size": 4785,
+          "sha512": "cdb35a93718231fd88ab65dc7a2a0deb119fa120e9f9820d89fefdbf29b9f67067dc03074d03df22235c4277721470f5b78a35b38793c2f6f65dcdc49e4a84d1",
+          "sha256": "e2c527785c4a87d3c86e22b520d79bb853e83bcc90ff50b399baecbb469354c5",
+          "sha1": "936aabb0651415787ff8b1c920e36052e50d2dac",
+          "md5": "45cb5903178e7e75277ba11d37d2075c"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-mongodb",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-data-mongodb",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-reactor",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "org.mongodb",
+          "module": "mongodb-driver-reactivestreams",
+          "version": {
+            "requires": "5.6.4"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-boot-starter-data-mongodb-reactive-4.0.5.jar",
+          "url": "spring-boot-starter-data-mongodb-reactive-4.0.5.jar",
+          "size": 4785,
+          "sha512": "cdb35a93718231fd88ab65dc7a2a0deb119fa120e9f9820d89fefdbf29b9f67067dc03074d03df22235c4277721470f5b78a35b38793c2f6f65dcdc49e4a84d1",
+          "sha256": "e2c527785c4a87d3c86e22b520d79bb853e83bcc90ff50b399baecbb469354c5",
+          "sha1": "936aabb0651415787ff8b1c920e36052e50d2dac",
+          "md5": "45cb5903178e7e75277ba11d37d2075c"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "spring-boot-starter-data-mongodb-reactive-4.0.5-javadoc.jar",
+          "url": "spring-boot-starter-data-mongodb-reactive-4.0.5-javadoc.jar",
+          "size": 4785,
+          "sha512": "cdb35a93718231fd88ab65dc7a2a0deb119fa120e9f9820d89fefdbf29b9f67067dc03074d03df22235c4277721470f5b78a35b38793c2f6f65dcdc49e4a84d1",
+          "sha256": "e2c527785c4a87d3c86e22b520d79bb853e83bcc90ff50b399baecbb469354c5",
+          "sha1": "936aabb0651415787ff8b1c920e36052e50d2dac",
+          "md5": "45cb5903178e7e75277ba11d37d2075c"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "spring-boot-starter-data-mongodb-reactive-4.0.5-sources.jar",
+          "url": "spring-boot-starter-data-mongodb-reactive-4.0.5-sources.jar",
+          "size": 4785,
+          "sha512": "cdb35a93718231fd88ab65dc7a2a0deb119fa120e9f9820d89fefdbf29b9f67067dc03074d03df22235c4277721470f5b78a35b38793c2f6f65dcdc49e4a84d1",
+          "sha256": "e2c527785c4a87d3c86e22b520d79bb853e83bcc90ff50b399baecbb469354c5",
+          "sha1": "936aabb0651415787ff8b1c920e36052e50d2dac",
+          "md5": "45cb5903178e7e75277ba11d37d2075c"
+        }
+      ]
+    }
+  ]
+}

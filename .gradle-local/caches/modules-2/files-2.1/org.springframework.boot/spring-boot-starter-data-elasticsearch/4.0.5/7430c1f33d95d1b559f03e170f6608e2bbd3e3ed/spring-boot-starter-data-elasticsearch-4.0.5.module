@@ -1,0 +1,153 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.springframework.boot",
+    "module": "spring-boot-starter-data-elasticsearch",
+    "version": "4.0.5",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.4.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-data-elasticsearch",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-elasticsearch",
+          "version": {
+            "requires": "4.0.5"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-boot-starter-data-elasticsearch-4.0.5.jar",
+          "url": "spring-boot-starter-data-elasticsearch-4.0.5.jar",
+          "size": 4776,
+          "sha512": "77d745d8c07deba2631d2679c3867e7ee7e511638fc448d0c6c250c14318269f646ca7d29db355283af85108c306bc92c6d678b3a6867585a831077fef5179b7",
+          "sha256": "3e8e26d58bfd43a52116c1aec5de42a27f35ae10180bd45d36fed16d0934c784",
+          "sha1": "bee0d311a3ea276687fd3093c11f9ce84d8891dd",
+          "md5": "6b0548fac4caedb57186630058a87ec6"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-data-elasticsearch",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-elasticsearch",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-jackson",
+          "version": {
+            "requires": "4.0.5"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-boot-starter-data-elasticsearch-4.0.5.jar",
+          "url": "spring-boot-starter-data-elasticsearch-4.0.5.jar",
+          "size": 4776,
+          "sha512": "77d745d8c07deba2631d2679c3867e7ee7e511638fc448d0c6c250c14318269f646ca7d29db355283af85108c306bc92c6d678b3a6867585a831077fef5179b7",
+          "sha256": "3e8e26d58bfd43a52116c1aec5de42a27f35ae10180bd45d36fed16d0934c784",
+          "sha1": "bee0d311a3ea276687fd3093c11f9ce84d8891dd",
+          "md5": "6b0548fac4caedb57186630058a87ec6"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "spring-boot-starter-data-elasticsearch-4.0.5-javadoc.jar",
+          "url": "spring-boot-starter-data-elasticsearch-4.0.5-javadoc.jar",
+          "size": 4776,
+          "sha512": "77d745d8c07deba2631d2679c3867e7ee7e511638fc448d0c6c250c14318269f646ca7d29db355283af85108c306bc92c6d678b3a6867585a831077fef5179b7",
+          "sha256": "3e8e26d58bfd43a52116c1aec5de42a27f35ae10180bd45d36fed16d0934c784",
+          "sha1": "bee0d311a3ea276687fd3093c11f9ce84d8891dd",
+          "md5": "6b0548fac4caedb57186630058a87ec6"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "spring-boot-starter-data-elasticsearch-4.0.5-sources.jar",
+          "url": "spring-boot-starter-data-elasticsearch-4.0.5-sources.jar",
+          "size": 4776,
+          "sha512": "77d745d8c07deba2631d2679c3867e7ee7e511638fc448d0c6c250c14318269f646ca7d29db355283af85108c306bc92c6d678b3a6867585a831077fef5179b7",
+          "sha256": "3e8e26d58bfd43a52116c1aec5de42a27f35ae10180bd45d36fed16d0934c784",
+          "sha1": "bee0d311a3ea276687fd3093c11f9ce84d8891dd",
+          "md5": "6b0548fac4caedb57186630058a87ec6"
+        }
+      ]
+    }
+  ]
+}

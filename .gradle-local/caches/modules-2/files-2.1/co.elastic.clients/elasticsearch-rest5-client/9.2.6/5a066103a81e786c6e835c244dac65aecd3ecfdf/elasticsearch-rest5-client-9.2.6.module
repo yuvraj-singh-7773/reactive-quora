@@ -1,0 +1,146 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "co.elastic.clients",
+    "module": "elasticsearch-rest5-client",
+    "version": "9.2.6",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.httpcomponents.client5",
+          "module": "httpclient5",
+          "version": {
+            "requires": "5.6"
+          }
+        },
+        {
+          "group": "commons-logging",
+          "module": "commons-logging",
+          "version": {
+            "requires": "1.3.5"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "elasticsearch-rest5-client-9.2.6.jar",
+          "url": "elasticsearch-rest5-client-9.2.6.jar",
+          "size": 97707,
+          "sha512": "6bdee49fad0309744d2493ef3d20c8ecc650b93fd257f5a94fb56da02e8e1cdf79258b23da07a9633c5b86c8b432da4ac089931936492e8c3312296b7ab78e75",
+          "sha256": "d5197d9fc2284a3726479a83f53f8776c883328bd43ae83aa9136e4e85b7af78",
+          "sha1": "5c091732ba6e97e6f30406a4396b9cdb850ff84b",
+          "md5": "c1a363fd113d590a72a8973ca2ebb2d9"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-core",
+          "version": {
+            "requires": "2.18.3"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-databind",
+          "version": {
+            "requires": "2.18.3"
+          }
+        },
+        {
+          "group": "org.apache.httpcomponents.client5",
+          "module": "httpclient5",
+          "version": {
+            "requires": "5.6"
+          }
+        },
+        {
+          "group": "commons-logging",
+          "module": "commons-logging",
+          "version": {
+            "requires": "1.3.5"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "elasticsearch-rest5-client-9.2.6.jar",
+          "url": "elasticsearch-rest5-client-9.2.6.jar",
+          "size": 97707,
+          "sha512": "6bdee49fad0309744d2493ef3d20c8ecc650b93fd257f5a94fb56da02e8e1cdf79258b23da07a9633c5b86c8b432da4ac089931936492e8c3312296b7ab78e75",
+          "sha256": "d5197d9fc2284a3726479a83f53f8776c883328bd43ae83aa9136e4e85b7af78",
+          "sha1": "5c091732ba6e97e6f30406a4396b9cdb850ff84b",
+          "md5": "c1a363fd113d590a72a8973ca2ebb2d9"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "elasticsearch-rest5-client-9.2.6-javadoc.jar",
+          "url": "elasticsearch-rest5-client-9.2.6-javadoc.jar",
+          "size": 196347,
+          "sha512": "a784b784dc826296a5963243fc871d4513bdd89a8a6db4b2b5b6a96beb6fe4a2eb7d11952be167421ad3de2abf9991d8da255328aca11c8dcda8bdc87786d195",
+          "sha256": "b0731cfcb3a2fa53a21821422e42f12aa014cae17743860c06e34cb9c5d6e037",
+          "sha1": "2fd2fdfc515567a53022b8ab77594e2f502c2897",
+          "md5": "7efc7db00b2af24d5b415d474d63bfa4"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "elasticsearch-rest5-client-9.2.6-sources.jar",
+          "url": "elasticsearch-rest5-client-9.2.6-sources.jar",
+          "size": 67360,
+          "sha512": "96011e4eb52cd4bdbbee8e4185ef1aa62e1ae1c7550dc2cf0d780cc1d3fbd0121218207805b425b684e179b5995a23b5de99944b420200b8efa774f9156c72fb",
+          "sha256": "7cdcb16eb0e0be25438f152307e991f06a9ca348d128fcbd1ac9057b09428ceb",
+          "sha1": "ceeda9c8c32e011af89f0aa5026e1b58ec257218",
+          "md5": "ab0f3c83a33b9bee2f09d6e1e3d99e74"
+        }
+      ]
+    }
+  ]
+}

@@ -8,16 +8,16 @@ import com.example.Quora.enums.TargetType;
 import com.example.Quora.events.ViewCountEvent;
 import com.example.Quora.mapper.QuestionMapper;
 import com.example.Quora.models.Question;
+import com.example.Quora.models.QuestionElasticDocument;
 import com.example.Quora.producer.KafkaEventProducer;
+import com.example.Quora.repository.QuestionDocumentRepository;
 import com.example.Quora.repository.QuestionRepository;
 import com.example.Quora.utils.CursorUtils;
 import com.example.Quora.utils.PaginationUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
@@ -31,11 +31,21 @@ public class QuestionService implements IQuestionService{
 
     private final KafkaEventProducer kafkaEventProducer;
 
+    private final QuestionDocumentRepository questionDocumentRepository;
+
+    private final IQuestionIndexService questionIndexService;
+
     @Override
     public Mono<QuestionResponseDTO> createQuestion(QuestionRequestDTO questionRequestDTO) {
         Question question= QuestionMapper.toEntity(questionRequestDTO);
         return questionRepository.save(question)
-                .map(QuestionMapper::toQuestionResponseDto)
+               .flatMap(savedQuestion -> {
+                   questionIndexService.createQuestionIndex(savedQuestion);
+                   return Mono.just(savedQuestion);
+               })
+                .map(savedQuestion ->
+                        QuestionMapper.toQuestionResponseDto(savedQuestion)
+                )
                 .doOnSuccess(response-> System.out.println("Question Created successfully "+response))
                 .doOnError(error-> System.out.println("Error Occur During Question Creation"+error));
 
@@ -142,4 +152,10 @@ public class QuestionService implements IQuestionService{
                 .switchIfEmpty(Mono.error(new RuntimeException("Not found")))
                 .flatMap(q -> questionRepository.delete(q));
     }
+
+    @Override
+    public List<QuestionElasticDocument> searchQuestionsByElasticsearch(String query) {
+        return questionDocumentRepository.findByTitleContainingOrContentContaining(query, query);
+    }
+
 }

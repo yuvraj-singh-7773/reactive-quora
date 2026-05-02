@@ -1,0 +1,146 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.springframework.boot",
+    "module": "spring-boot-webtestclient",
+    "version": "4.0.5",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.4.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-test",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-http-codec",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-webflux",
+          "version": {
+            "requires": "7.0.6"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-boot-webtestclient-4.0.5.jar",
+          "url": "spring-boot-webtestclient-4.0.5.jar",
+          "size": 12107,
+          "sha512": "8d5418492db68e2d88948642b784da1a8c5be6c2ef1bce71ab193af20ae811a6bb8e7793a5309c3343a79b90b196ed73330b60b063be64eb63c3696296e40c68",
+          "sha256": "8bb52e8b7b1ffdd4ad599240853916c5598dd652004a84c49a4317e2230b878c",
+          "sha1": "52082135c32afcb7aa6c1711209f75fa5b08ad01",
+          "md5": "b261e518c5c9632fb1691ffb68d85eb0"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-test",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-http-codec",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-webflux",
+          "version": {
+            "requires": "7.0.6"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-boot-webtestclient-4.0.5.jar",
+          "url": "spring-boot-webtestclient-4.0.5.jar",
+          "size": 12107,
+          "sha512": "8d5418492db68e2d88948642b784da1a8c5be6c2ef1bce71ab193af20ae811a6bb8e7793a5309c3343a79b90b196ed73330b60b063be64eb63c3696296e40c68",
+          "sha256": "8bb52e8b7b1ffdd4ad599240853916c5598dd652004a84c49a4317e2230b878c",
+          "sha1": "52082135c32afcb7aa6c1711209f75fa5b08ad01",
+          "md5": "b261e518c5c9632fb1691ffb68d85eb0"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "spring-boot-webtestclient-4.0.5-javadoc.jar",
+          "url": "spring-boot-webtestclient-4.0.5-javadoc.jar",
+          "size": 116571,
+          "sha512": "f7b45a3906423c3ecc66442931b1a13f65ddc58b32c7d206c4e2315ed06ef896c5171532691821a9ea333a89c549dd73519e3f853ab42a66e3db302467b7e1ad",
+          "sha256": "a18eb9b1f8ac18a8600e85011d953df4bc543a06e89689387a486d2cb9b24a0d",
+          "sha1": "47bd3961f39f518bdaa80abb3717556f650f7ea0",
+          "md5": "9866bd213289c20afcbd0b46d2df3578"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "spring-boot-webtestclient-4.0.5-sources.jar",
+          "url": "spring-boot-webtestclient-4.0.5-sources.jar",
+          "size": 11615,
+          "sha512": "cf5ceb17b277c00b225f744f6b708d11b757beae3f73a86497b0b8e883d571d09d8def42617bf8a7fca01f9f15766aa409d13bfab268eb96364cb173ca6f5c46",
+          "sha256": "bfba144866d0eb57d09de1ee8f001528ec08dcebab777009006b3cf3b220b6dd",
+          "sha1": "ccf71afd12c1c47e1a7c8997f444b0ef8f83ad54",
+          "md5": "ed15bd69eebe9066ab37eb88fb84f322"
+        }
+      ]
+    }
+  ]
+}

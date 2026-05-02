@@ -1,0 +1,132 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.springframework.boot",
+    "module": "spring-boot-elasticsearch",
+    "version": "4.0.5",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.4.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "co.elastic.clients",
+          "module": "elasticsearch-rest5-client",
+          "version": {
+            "requires": "9.2.6"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-boot-elasticsearch-4.0.5.jar",
+          "url": "spring-boot-elasticsearch-4.0.5.jar",
+          "size": 54324,
+          "sha512": "15e9796e1c203a85c82eabc82c64c950230ce358626b30168e5cae6dc937b95fede6a50fae3cf5d210fdf49755fb4f9996ac29f10075f22cfb49b60c7c3d7740",
+          "sha256": "7db3d00b851c74f0581761e1bfb0872e8ffb225b8b7bc8a3a591213a308f62da",
+          "sha1": "a10ddab3c591e37faa771c8f6759448c08980b17",
+          "md5": "e82f080ee1ce969f3391e8a91803a0c8"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot",
+          "version": {
+            "requires": "4.0.5"
+          }
+        },
+        {
+          "group": "co.elastic.clients",
+          "module": "elasticsearch-rest5-client",
+          "version": {
+            "requires": "9.2.6"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-boot-elasticsearch-4.0.5.jar",
+          "url": "spring-boot-elasticsearch-4.0.5.jar",
+          "size": 54324,
+          "sha512": "15e9796e1c203a85c82eabc82c64c950230ce358626b30168e5cae6dc937b95fede6a50fae3cf5d210fdf49755fb4f9996ac29f10075f22cfb49b60c7c3d7740",
+          "sha256": "7db3d00b851c74f0581761e1bfb0872e8ffb225b8b7bc8a3a591213a308f62da",
+          "sha1": "a10ddab3c591e37faa771c8f6759448c08980b17",
+          "md5": "e82f080ee1ce969f3391e8a91803a0c8"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "spring-boot-elasticsearch-4.0.5-javadoc.jar",
+          "url": "spring-boot-elasticsearch-4.0.5-javadoc.jar",
+          "size": 155810,
+          "sha512": "1c3ffe731e31d51f78ddd03a9b024df0345d0562dff0b5e30104c88801bf27271ce80ba40114f04bece15c60fe05160d405b3708a6ca4461c77f0cab95311f30",
+          "sha256": "26f939a6586fbbc951a8b3aea94950408339c1ce4e0214b64153f1ffee63cb2c",
+          "sha1": "0ec38e4030dafaf2608c49e4e04b549586185f40",
+          "md5": "0775854d475109d9f561006c0649ea1f"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "spring-boot-elasticsearch-4.0.5-sources.jar",
+          "url": "spring-boot-elasticsearch-4.0.5-sources.jar",
+          "size": 29481,
+          "sha512": "dcd31c38b6de54ea11570ccfe806e0d8f48567fedf2a4568ddfe2d4e611c2bfe669f06758925c53dc81f5aa77aaa387328be2f92c62840e86dbc1f7a1a68e554",
+          "sha256": "0ea7e52d598fa8d5ba962fe5a4a4a0ceae78401fc4175b45020a5e1e512e034e",
+          "sha1": "3b0122f13cb0757d564454aec545d59c9e412186",
+          "md5": "c9d78da1144c833320e0d62cf674cd2d"
+        }
+      ]
+    }
+  ]
+}
